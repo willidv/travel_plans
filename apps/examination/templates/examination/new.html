@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <a href="/examination/logout">Log Out</a>
+        <a href="/home">home</a>
+        {% for message in messages %}
+        {{message}}
+        {%endfor%}
+    <form action='/examination/add' method='POST'>
+        {% csrf_token %}
+        Destination:<input type="text" name="destination"><br>
+        Description:<input type="text" name="description"><br>
+        Leaving Date:<input type="date" name="t_d_from"><br>
+        Come Back Date:<input type="date" name="t_d_to"><br>
+        <p>Please fill out the complete form and make sure you leave before you come back! </p>
+        <input type="submit" value="Submit">
+    </form><br><br>
+</body>
+</html>

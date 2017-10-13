@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/examination/logout">Log Out</a>
+    {% csrf_token %}
+    <h1>Welcome {{thisuser.name}}</h1>
+    <a href="/examination/new">add plans</a>
+    <div>
+        <h1>Your Travel Plans</h1>
+        <table>
+            <tr>
+                <th>Destination</th>
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Plan</th>
+            </tr>
+            {% for plan in t_plans %}
+            <tr>
+                <td>{{plan.destination}}</td>
+                <td>{{plan.t_d_to}}</td>
+                <td>{{plan.t_d_from}}</td>
+                <td>{{plan.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h1>All Travel Plans</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Destination</th>
+                <th>Travel Start Date</th>
+                <th>Travel End Date</th>
+                <th>Plan</th>
+                <th>Do you want to Join?</th>
+            </tr>
+            {% for p in all_plans %}
+            <tr>
+                <td></td>
+                <td><a href="plan/{{p.id}}">{{p.destination}}</a></td>
+                <td>{{p.t_d_to}}</td>
+                <td>{{p.t_d_from}}</td>
+                <td>{{p.description}}</td>
+                <td><form action="/join/{{p.id}}" method="post">
+                    {% csrf_token %} <input type='submit' value="join">
+                    </form></td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </div>
+</body>
+</html>

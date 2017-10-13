@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <a href="/home">home</a>
+        <a href="/examination/logout">Log Out</a>
+    <p>{{thisplan.destination}}</p>
+    <p>{{thisplan.description}}</p>
+    <p>{{thisplan.t_d_from}}</p>
+    <p>{{thisplan.t_d_to}}</p>
+    <p>{% for u in users %}
+        <ul>
+        <li>{{u.username}}</li>
+        </ul>
+        {% endfor %}
+    </p>
+    
+</body>
+</html>
